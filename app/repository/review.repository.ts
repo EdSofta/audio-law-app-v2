@@ -13,7 +13,8 @@ export const getReviews = async (
   audioId: string,
   cancelSource?: CancelTokenSource
 ): Promise<any> => {
-  const reviews = await getItem<Review[]>(keys.reviews + audioId);
+  //const reviews = await getItem<Review[]>(keys.reviews + audioId);
+  const reviews = false;
   if (!reviews) {
     const res = await getReviewsApi(audioId, cancelSource);
     if (res.ok) {
