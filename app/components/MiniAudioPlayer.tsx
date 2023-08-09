@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
   Image,
@@ -21,6 +21,7 @@ const MiniAudioPlayer: React.FC<Prop> = ({ onClick }) => {
   const { playlist, currentIndex } = useContext(PlaylistContext);
   const { isPlaying, playbackObj, isBuffering } = useContext(AudioContext);
   const { previous, next, pause, resume } = useAudio();
+
   const category = useMemo(
     () =>
       categories.find((cat) => cat.title === playlist[currentIndex].category),
@@ -28,11 +29,11 @@ const MiniAudioPlayer: React.FC<Prop> = ({ onClick }) => {
   );
 
   return (
-    <TouchableOpacity onPress={onClick} style={style.container}>
+    <TouchableOpacity onPress={onClick}  style={style.container}>
       <View
         style={[
           style.body,
-          { backgroundColor: category?.primaryColor || '#DCECFF' },
+          { backgroundColor: category?.primaryColor || '#DCECFF'},
         ]}
       >
         <View
@@ -98,7 +99,7 @@ const style = StyleSheet.create({
     width: '100%',
     zIndex: 999999,
     position: 'absolute',
-    bottom: 70,
+    bottom: '8.6%',
     left: 0,
     right: 0,
   },
