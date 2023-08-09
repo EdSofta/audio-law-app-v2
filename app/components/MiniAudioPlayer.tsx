@@ -98,7 +98,7 @@ const style = StyleSheet.create({
     width: '100%',
     zIndex: 999999,
     position: 'absolute',
-    bottom: 49,
+    bottom: 70,
     left: 0,
     right: 0,
   },

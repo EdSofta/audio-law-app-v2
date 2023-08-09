@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { ActivityIndicator, StyleSheet, Text, TextInput, View } from "react-native";
 import { textStyles } from "../config/styles";
 import { Rating } from "react-native-ratings";
 import MediumButton from "./MediumButton";
@@ -9,11 +9,12 @@ import colors from "../config/colors";
 type Prop = {
   bgColor?: string;
   onSubmit?: (content: string, rating: number) => boolean | Promise<boolean>;
+  isLoading?: boolean;
 };
 
 type Style = {};
 
-const ReviewForm: React.FC<Prop> = ({ bgColor, onSubmit }) => {
+const ReviewForm: React.FC<Prop> = ({ bgColor, onSubmit, isLoading }) => {
   const [content, setContent] = useState("");
   const [rating, setRating] = useState(0);
 
@@ -69,12 +70,17 @@ const ReviewForm: React.FC<Prop> = ({ bgColor, onSubmit }) => {
           },
         ]}
       />
-      <MediumButton
+      {isLoading ?  <ActivityIndicator
+          size="large"
+          color={colors.dark_blue}
+          style={{ marginLeft: 'auto', marginRight: 'auto' }}
+        /> : <MediumButton
         backgroundColor="#0E4F73"
         onPress={submit}
         title="Submit Review"
         disabled={!content || rating <= 0}
-      />
+      />}
+      
     </View>
   );
 };

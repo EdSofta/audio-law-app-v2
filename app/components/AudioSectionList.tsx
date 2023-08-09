@@ -110,7 +110,7 @@ const AudioSectionList: React.FC<Prop> = ({
               />
             </View>
             <View style={defaultStyle.audioMeta}>
-              <View>
+              <View style={{flexBasis: '85%'}}>
                 <Text style={[textStyles.heading4, { marginBottom: 5 }]}>
                   {item.title}
                 </Text>
@@ -161,6 +161,7 @@ const defaultStyle = StyleSheet.create<Style>({
     flexGrow: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    gap: 5,
     paddingTop: 10,
     paddingHorizontal: 10,
     paddingBottom: 17,

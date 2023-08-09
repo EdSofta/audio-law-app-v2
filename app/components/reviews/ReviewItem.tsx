@@ -43,7 +43,7 @@ const ReviewItem: React.FC<Prop> = ({ review, customStyle, theme }) => {
             readonly
             style={{
               justifyContent: "flex-start",
-              marginLeft: -90,
+              marginLeft: -10,
               marginTop: 5,
             }}
             tintColor={theme}
