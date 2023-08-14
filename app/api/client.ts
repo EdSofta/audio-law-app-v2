@@ -9,7 +9,7 @@ const apiClient = create({
   timeout: 300000,
 });
 
-const monitor: Monitor = (response: ApiResponse<any>) => {
+export const monitor: Monitor = (response: ApiResponse<any>) => {
   console.log({
     config: {
       method: response.config?.method,

@@ -58,7 +58,7 @@ const AudioSectionList: React.FC<Prop> = ({
   const handleOnPlay = (audio: AudioInfo) => {
     if (audioList) {
       const index = audioList.findIndex((a) => a.id == audio.id) || 0;
-      if (audioList[index].isFree || user?.isSubscribed) {
+      if (audioList[index].isFree || user?.subscribed) {
         if (_.isEqual(audioList, playlist)) {
           if (currentAudio.id == audio.id) {
             return resume();
@@ -110,7 +110,7 @@ const AudioSectionList: React.FC<Prop> = ({
               />
             </View>
             <View style={defaultStyle.audioMeta}>
-              <View style={{flexBasis: '85%'}}>
+              <View style={{ flexBasis: '85%' }}>
                 <Text style={[textStyles.heading4, { marginBottom: 5 }]}>
                   {item.title}
                 </Text>

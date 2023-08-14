@@ -26,3 +26,16 @@ export const updateProfileApi = (
 ): Promise<ApiResponse<IResponse<{ message: string; token: string }>>> => {
   return apiClient.put('user', payload, { cancelToken: cancelToken?.token });
 };
+
+export const checkSubscription = (payload: {
+  customer_id: string;
+  plan_id: string;
+}): Promise<ApiResponse<IResponse<string>>> => {
+  return apiClient.post('user/subscribe', payload);
+};
+
+export const cancelSubscription = (): Promise<
+  ApiResponse<IResponse<string>>
+> => {
+  return apiClient.post('user/unsubscribe');
+};

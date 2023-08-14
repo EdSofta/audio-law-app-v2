@@ -1,33 +1,51 @@
 {
   "expo": {
-    "name": "audioLawV2",
-    "slug": "audioLawV2",
-    "version": "1.0.0",
+    "name": "audio-law",
+    "slug": "audio-law",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "owner": "bolusarz",
     "experiments": {
       "tsconfigPaths": true
     },
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "resizeMode": "cover",
+      "backgroundColor": "#123155"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "updates": {
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/82c6f010-583d-4803-b991-f01c945714ec"
+    },
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "UIBackgroundModes": ["audio"]
+      },
+      "bundleIdentifier": "com.edsofta.audiolaw",
+      "runtimeVersion": {
+        "policy": "sdkVersion"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.edsofta.audiolaw",
+      "permissions": ["FOREGROUND_SERVICE", "READ_EXTERNAL_STORAGE"],
+      "runtimeVersion": "1.0.0"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "82c6f010-583d-4803-b991-f01c945714ec"
+      }
     }
   }
 }

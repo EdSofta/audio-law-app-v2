@@ -4,5 +4,8 @@ export class User {
   phone: string = '';
   email: string = '';
   profilePicture?: string;
-  isSubscribed?: boolean;
+  subscribed?: boolean;
+  plan_id?: string;
+  renewal_date?: string;
+  subscription_status?: boolean;
 }

@@ -28,6 +28,7 @@ import { AuthStackParamList } from '../navigation/AuthNavigator';
 import useAuth from '../auth/useAuth';
 import { test_token } from '../utils/constants';
 import { CancelToken } from 'apisauce';
+import * as WebBrowser from 'expo-web-browser';
 
 type Prop = NativeStackScreenProps<AuthStackParamList, 'Login'>;
 
@@ -74,7 +75,7 @@ const LoginScreen: React.FC<Prop> = ({ navigation }) => {
   };
 
   const handleForgotPassword = () => {
-    navigation.replace(routes.FORGOT_PASSWORD);
+    WebBrowser.openBrowserAsync('https://audiolawreport.com/forgot-password');
   };
 
   const handleSignUp = () => {

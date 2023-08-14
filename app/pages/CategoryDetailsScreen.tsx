@@ -68,7 +68,7 @@ const CategoryDetailsScreen: React.FC<Prop> = ({ route, navigation }) => {
   const handleOnPlay = (audio: AudioInfo) => {
     if (audioList) {
       const index = audioList?.findIndex((a) => a.id == audio.id) || 0;
-      if (audioList[index].isFree || user?.isSubscribed) {
+      if (audioList[index].isFree || user?.subscribed) {
         if (_.isEqual(audioList, playlist)) {
           if (currentAudio.id == audio.id) {
             return resume();

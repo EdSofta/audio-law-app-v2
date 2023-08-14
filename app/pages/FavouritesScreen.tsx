@@ -36,7 +36,7 @@ const FavouritesScreen: React.FC<Prop> = () => {
   const handleOnPlay = (audio: AudioInfo) => {
     if (audioList) {
       const index = audioList.findIndex((a) => a.uri == audio.uri);
-      if (audioList[index].isFree || user?.isSubscribed) {
+      if (audioList[index].isFree || user?.subscribed) {
         if (_.isEqual(audioFiles, playlist)) {
           if (currentAudio.uri == audio.uri) {
             return resume();

@@ -1,12 +1,12 @@
-import React from "react";
-import { FlatList, StyleSheet, View, ViewStyle } from "react-native";
-import useAuth from "../auth/useAuth";
-import { Entypo, Feather, MaterialCommunityIcons } from "@expo/vector-icons";
-import { Menu } from "../models/menu";
-import MenuItem from "../components/MenuItem";
-import Divider from "../components/Divider";
-import routes from "../navigation/routes";
-import ProfilePage, { style } from "../components/ProfilePage";
+import React from 'react';
+import { FlatList, StyleSheet, View, ViewStyle } from 'react-native';
+import useAuth from '../auth/useAuth';
+import { Entypo, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Menu } from '../models/menu';
+import MenuItem from '../components/MenuItem';
+import Divider from '../components/Divider';
+import routes from '../navigation/routes';
+import ProfilePage, { style } from '../components/ProfilePage';
 
 type Prop = {};
 
@@ -16,7 +16,7 @@ type Style = {
 
 const menu: Menu[] = [
   {
-    title: "My Account",
+    title: 'My Account',
     leftIcon: () => (
       <MaterialCommunityIcons name="account" size={26} color="#0E4F73" />
     ),
@@ -24,28 +24,28 @@ const menu: Menu[] = [
     rightIcon: () => <Feather name="chevron-right" size={26} color="#0E4F73" />,
   },
   {
-    title: "Change my password",
+    title: 'Change my password',
     leftIcon: () => <Entypo name="lock" size={26} color="#0E4F73" />,
     link: routes.CHANGE_PASSWORD,
     rightIcon: () => <Feather name="chevron-right" size={26} color="#0E4F73" />,
   },
   {
-    title: "Subscription / Payment Details",
+    title: 'Subscription / Payment Details',
     leftIcon: () => <Feather name="credit-card" size={26} color="#0E4F73" />,
-    link: routes.PAYMENT_INFO,
+    link: routes.SUBSCRIPTION_DETAILS,
     rightIcon: () => <Feather name="chevron-right" size={26} color="#0E4F73" />,
   },
   {
-    title: "Log Out",
+    title: 'Log Out',
     leftIcon: () => (
       <View
         style={{
-          backgroundColor: "#C22D2D24",
+          backgroundColor: '#C22D2D24',
           width: 33,
           height: 33,
           borderRadius: 17,
-          alignItems: "center",
-          justifyContent: "center",
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
         <Feather name="log-out" size={24} color="#C22D2D" />
@@ -60,7 +60,7 @@ const SettingScreen: React.FC<Prop> = () => {
   const { user, logout } = useAuth();
 
   const handleOnPress = (menu: Menu) => {
-    if (menu.title == "Log Out") {
+    if (menu.title == 'Log Out') {
       logout();
     }
   };
@@ -82,10 +82,10 @@ const SettingScreen: React.FC<Prop> = () => {
 const defaultStyle = StyleSheet.create<Style>({
   body: {
     marginTop: 30,
-    backgroundColor: "#FCFCFC",
+    backgroundColor: '#FCFCFC',
     borderTopStartRadius: 15,
     borderTopEndRadius: 15,
-    width: "100%",
+    width: '100%',
     paddingVertical: 20,
     flexGrow: 1,
   },

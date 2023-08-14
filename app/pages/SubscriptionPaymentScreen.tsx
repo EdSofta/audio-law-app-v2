@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
   ScrollView,
@@ -12,17 +12,32 @@ import { Feather } from '@expo/vector-icons';
 import PlanItem from '../components/PlanItem';
 import Divider from '../components/Divider';
 import { useApi } from '../hooks/useApi';
-import { getPlans, initiateSubApi, PaystackPlan } from '../api/paystack';
+import {
+  getCustomer,
+  getPlans,
+  initiateSubApi,
+  PaystackPlan,
+} from '../api/paystack';
 import { CancelToken } from 'apisauce';
 import colors from '../config/colors';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import routes from '../navigation/routes';
 import Toast from 'react-native-root-toast';
+import useAuth from '../auth/useAuth';
+import { checkSubscription } from '../api/user';
+import { AuthContextType, AuthContext } from '../auth/context';
 
 type Prop = NativeStackScreenProps<any>;
 
-const SubscriptionScreen: React.FC<Prop> = ({ navigation }) => {
+const SubscriptionPaymentScreen: React.FC<Prop> = ({ navigation }) => {
+  const { user, login } = useAuth();
+
   const { request, error, loading } = useApi(initiateSubApi);
+  const {
+    request: checkSubscriptionRequest,
+    data: userData,
+    loading: checkLoading,
+  } = useApi(checkSubscription);
 
   const {
     request: requestPlans,
@@ -30,15 +45,36 @@ const SubscriptionScreen: React.FC<Prop> = ({ navigation }) => {
     data: plans,
   } = useApi<any>(getPlans);
 
+  const { request: requestCustomer, loading: customerLoading } =
+    useApi<any>(getCustomer);
+
+  const [selectedPlanId, setSelectedPlanId] = useState<string>();
+
   let cancelToken = CancelToken.source();
 
+  const makingRequest = useMemo(
+    () => loading || plansLoading || checkLoading || customerLoading,
+    [loading, plansLoading, checkLoading, customerLoading]
+  );
+
   useEffect(() => {
-    requestPlans(cancelToken);
+    navigation.addListener('focus', () => {
+      requestCustomer().then((res) => {
+        if (res.ok) {
+          const customer_id = res.data?.data.id;
+          checkSubscriptionRequest({ customer_id, plan_id: selectedPlanId });
+        } else {
+          requestPlans();
+        }
+      });
+    });
   }, []);
 
   const handleOnPress = (plan: PaystackPlan) => {
     cancelToken.cancel();
     cancelToken = CancelToken.source();
+    setSelectedPlanId(plan.id);
+    console.log(plan);
     request(plan.plan_code, cancelToken).then(({ ok, data: resp }) => {
       if (ok) {
         if (resp.data?.authorization_url) {
@@ -55,6 +91,12 @@ const SubscriptionScreen: React.FC<Prop> = ({ navigation }) => {
       }
     });
   };
+
+  useEffect(() => {
+    if (userData) {
+      login((userData as any).token).then(() => navigation.goBack());
+    }
+  }, [userData]);
 
   return (
     <ScreenWithToolbar iconTint="#0E4F73">
@@ -91,7 +133,7 @@ const SubscriptionScreen: React.FC<Prop> = ({ navigation }) => {
           ))}
         </View>
       </ScrollView>
-      {loading ? (
+      {makingRequest ? (
         <ActivityIndicator
           size="large"
           color={colors.light_blue}
@@ -144,4 +186,4 @@ const style = StyleSheet.create({
   },
 });
 
-export default SubscriptionScreen;
+export default SubscriptionPaymentScreen;
