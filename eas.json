@@ -10,7 +10,12 @@
     "preview": {
       "distribution": "internal"
     },
-    "production": {}
+    "production": {
+      "env": {
+        "PAYSTACK_ENDPOINT":"https://api.paystack.co",
+        "PAYSTACK_KEY": "sk_test_237f72d15cff229df0415a06a12909262cde6939"
+      }
+    }
   },
   "submit": {
     "production": {}

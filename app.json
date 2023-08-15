@@ -1,12 +1,12 @@
 {
   "expo": {
     "name": "audio-law",
-    "slug": "audio-law",
+    "slug": "audio-law-report",
     "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "owner": "bolusarz",
+    "owner": "edsoftaengineering",
     "experiments": {
       "tsconfigPaths": true
     },
@@ -44,8 +44,9 @@
     },
     "extra": {
       "eas": {
-        "projectId": "82c6f010-583d-4803-b991-f01c945714ec"
+      "projectId": "860dd84f-c21f-4887-968b-6ecce5521d3f"
       }
     }
+    
   }
 }
