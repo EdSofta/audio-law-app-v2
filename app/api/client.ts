@@ -5,7 +5,7 @@ import { BASE_URL } from '@env';
 
 const apiClient = create({
   baseURL:
-    'http://ec2-13-40-213-192.eu-west-2.compute.amazonaws.com:8000/api/v1',
+    'http://ec2-13-40-213-192.eu-west-2.compute.amazonaws.com:8000/api/v1/',
   timeout: 300000,
 });
 
