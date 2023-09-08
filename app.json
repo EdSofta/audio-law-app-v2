@@ -19,11 +19,15 @@
       "fallbackToCacheTimeout": 0,
       "url": "https://u.expo.dev/82c6f010-583d-4803-b991-f01c945714ec"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
-        "UIBackgroundModes": ["audio"]
+        "UIBackgroundModes": [
+          "audio"
+        ]
       },
       "bundleIdentifier": "com.edsofta.audiolaw",
       "runtimeVersion": {
@@ -36,8 +40,11 @@
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.edsofta.audiolaw",
-      "permissions": ["FOREGROUND_SERVICE", "READ_EXTERNAL_STORAGE"],
-      "runtimeVersion": "1.0.0"
+      "permissions": [
+        "FOREGROUND_SERVICE",
+        "READ_EXTERNAL_STORAGE"
+      ],
+      "runtimeVersion": "1.0.0",
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -46,6 +53,13 @@
       "eas": {
       "projectId": "860dd84f-c21f-4887-968b-6ecce5521d3f"
       }
-    }
+    },
+    "plugins": [
+      ["expo-build-properties", {
+        "android": {
+          "usesCleartextTraffic": true
+        }
+      }]
+    ]
   }
 }
