@@ -10,6 +10,7 @@ type TEXT_STYLE = {
   heading2: TextStyle;
   heading3: TextStyle;
   heading4: TextStyle;
+  heading5: TextStyle;
   body: TextStyle;
 };
 
@@ -51,6 +52,11 @@ export const textStyles = StyleSheet.create<TEXT_STYLE>({
     fontFamily: "Montserrat_Bold",
     fontSize: 16,
     lineHeight: 20,
+  },
+  heading5: {
+    fontFamily: "Montserrat_Bold",
+    fontSize: 12,
+    lineHeight: 16,
   },
   body: {
     fontFamily: "Montserrat",

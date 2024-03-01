@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 import {
   ActivityIndicator,
   FlatList,
@@ -10,17 +10,17 @@ import {
   TouchableOpacity,
   View,
   ViewStyle,
-} from 'react-native';
-import { AudioInfo } from '../models/audio.model';
-import TextButton from './TextButton';
-import { textStyles } from '../config/styles';
-import useAudio from '../audio/useAudio';
-import { AudioContext, PlaylistContext } from '../audio/context';
-import _ from 'lodash';
-import colors from '../config/colors';
-import { SubscribeContext } from '../subscribe/context';
-import useAuth from '../auth/useAuth';
-import { categories } from '../utils/constants';
+} from "react-native";
+import { AudioInfo } from "../models/audio.model";
+import TextButton from "./TextButton";
+import { textStyles } from "../config/styles";
+import useAudio from "../audio/useAudio";
+import { AudioContext, PlaylistContext } from "../audio/context";
+import _ from "lodash";
+import colors from "../config/colors";
+import { SubscribeContext } from "../subscribe/context";
+import useAuth from "../auth/useAuth";
+import { categories } from "../utils/constants";
 
 type Prop = {
   style?: StyleProp<ViewStyle>;
@@ -84,7 +84,7 @@ const AudioSectionList: React.FC<Prop> = ({
         <ActivityIndicator
           size="large"
           color={colors.dark_blue}
-          style={{ marginLeft: 'auto', marginRight: 'auto' }}
+          style={{ marginLeft: "auto", marginRight: "auto" }}
         />
       )}
       <FlatList
@@ -100,18 +100,18 @@ const AudioSectionList: React.FC<Prop> = ({
                   backgroundColor:
                     categories.find(
                       (category) => category.title === item.category
-                    )?.primaryColor || '#F6FAFF',
+                    )?.primaryColor || "#F6FAFF",
                 },
               ]}
             >
               <Image
-                source={require('../../assets/headphones.png')}
+                source={require("../../assets/headphones.png")}
                 style={defaultStyle.thumbnail}
               />
             </View>
             <View style={defaultStyle.audioMeta}>
-              <View style={{ flexBasis: '85%' }}>
-                <Text style={[textStyles.heading4, { marginBottom: 5 }]}>
+              <View style={{ flexBasis: "85%" }}>
+                <Text style={[textStyles.heading5, { marginBottom: 5 }]}>
                   {item.title}
                 </Text>
                 <Text style={textStyles.body}>{item.category}</Text>
@@ -127,18 +127,18 @@ const AudioSectionList: React.FC<Prop> = ({
                   source={
                     currentAudio?.uri == item?.uri
                       ? isPlaying
-                        ? require('../../assets/pause.png')
-                        : require('../../assets/play.png')
-                      : require('../../assets/play.png')
+                        ? require("../../assets/pause.png")
+                        : require("../../assets/play.png")
+                      : require("../../assets/play.png")
                   }
-                  style={{ width: 24, height: 24, alignSelf: 'flex-end' }}
+                  style={{ width: 24, height: 24, alignSelf: "flex-end" }}
                 />
               </TouchableOpacity>
             </View>
           </View>
         )}
         ItemSeparatorComponent={() => (
-          <View style={{ width: 20, height: '100%' }}></View>
+          <View style={{ width: 20, height: "100%" }}></View>
         )}
         horizontal
       />
@@ -149,9 +149,9 @@ const AudioSectionList: React.FC<Prop> = ({
 const defaultStyle = StyleSheet.create<Style>({
   header: {
     marginBottom: 20,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   audio: {
     width: 183,
@@ -159,29 +159,28 @@ const defaultStyle = StyleSheet.create<Style>({
   },
   audioMeta: {
     flexGrow: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     gap: 5,
     paddingTop: 10,
     paddingHorizontal: 10,
     paddingBottom: 17,
-    backgroundColor: '#FAFCFF',
+    backgroundColor: "#FAFCFF",
     borderBottomStartRadius: 10,
     borderBottomEndRadius: 10,
   },
   thumbnailContainer: {
-    width: '100%',
-    flexGrow: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F6FAFF',
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F6FAFF",
     borderTopStartRadius: 10,
     borderTopEndRadius: 10,
   },
   thumbnail: {
-    width: 50,
-    height: 50,
-    resizeMode: 'cover',
+    width: 80,
+    height: 80,
+    resizeMode: "cover",
   },
 });
 

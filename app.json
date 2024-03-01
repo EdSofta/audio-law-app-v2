@@ -44,7 +44,7 @@
         "FOREGROUND_SERVICE",
         "READ_EXTERNAL_STORAGE"
       ],
-      "runtimeVersion": "1.0.0",
+      "runtimeVersion": "1.0.0"
     },
     "web": {
       "favicon": "./assets/favicon.png"

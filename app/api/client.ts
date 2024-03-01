@@ -24,6 +24,10 @@ export const monitor: Monitor = (response: ApiResponse<any>) => {
     status: response.status,
     problem: response.problem,
   });
+
+  console.log('hello');
+
+  console.log(response.config?.data);
 };
 
 apiClient.addMonitor(monitor);

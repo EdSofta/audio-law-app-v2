@@ -95,61 +95,70 @@ export const reviews: Review[] = [
     user: "Ogunbowale Michael",
     dateCreated: "22 december 2022",
     rating: 4,
+    audioId: ""
   },
   {
     content: "Nice one!",
     user: "Ogunbowale Michael",
     dateCreated: "22 december 2022",
     rating: 4,
+    audioId: ""
   },
   {
     content: "Nice one!",
     user: "Ogunbowale Michael",
     dateCreated: "22 december 2022",
     rating: 4,
+    audioId: ""
   },
   {
     content: "Nice one!",
     user: "Ogunbowale Michael",
     dateCreated: "22 december 2022",
     rating: 4,
+    audioId: ""
   },
   {
     content: "Nice one!",
     user: "Ogunbowale Michael",
     dateCreated: "22 december 2022",
     rating: 4,
+    audioId: ""
   },
   {
     content: "Nice one!",
     user: "Ogunbowale Michael",
     dateCreated: "22 december 2022",
     rating: 4,
+    audioId: ""
   },
 ];
 
 export const categories: Category[] = [
   {
     title: "Constitutional Law",
-    primaryColor: "#E3F0FF",
-    secondaryColor: "#A1D1F9",
+    primaryColor: "#DBFDD3",
+    secondaryColor: "#DBFDD3",
     imgUri: require("../../assets/icons8-civil-64.png"),
+    backgroundUri : require("../../assets/category-banner.png"),
     slug: "constitutional",
     tertiaryColor: "rgba(250, 252, 255, 1)",
   },
   {
     title: "Criminal Law",
-    primaryColor: "#E3FFFA",
-    secondaryColor: "#C8F6EE",
+    primaryColor: "#FFDDE1",
+    secondaryColor: "#FFDDE1",
     imgUri: require("../../assets/icons8-contract-64.png"),
+    backgroundUri: require("../../assets/category-banner.png"),
     slug: "criminal",
     tertiaryColor: "rgba(227, 255, 250, 0.26)",
   },
   {
     title: "Civil Law",
-    primaryColor: "#F2E0D3",
-    secondaryColor: "#F2E0D3",
+    primaryColor: "#E3F0FF",
+    secondaryColor: "#A1D1F9",
     imgUri: require("../../assets/icons8-law-book-64.png"),
+    backgroundUri: require("../../assets/category-banner.png"),
     slug: "civil",
     tertiaryColor: "rgba(255, 239, 227, 0.26)",
   },
@@ -158,6 +167,7 @@ export const categories: Category[] = [
     primaryColor: "#F6E3FF",
     secondaryColor: "#DEBBEF",
     imgUri: require("../../assets/icons8-contract-64.png"),
+    backgroundUri: require("../../assets/category-banner.png"),
     slug: "recently",
     tertiaryColor: "rgba(246, 227, 255, 0.26)",
   },

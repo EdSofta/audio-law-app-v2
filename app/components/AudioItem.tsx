@@ -39,9 +39,9 @@ const AudioItem: React.FC<Prop> = ({ audio, bgColor, onPlay, onPause }) => {
         source={require("../../assets/headphones.png")}
         style={style.image}
       />
-      <View>
+      <View style={{ maxWidth: '80%' }}>
         <Text
-          style={{ ...textStyles.heading4, color: "#323232", marginBottom: 5 }}
+          style={{ ...textStyles.heading5, color: "#323232", marginBottom: 5}}
         >
           {audio.title}
         </Text>
@@ -79,10 +79,10 @@ const AudioItem: React.FC<Prop> = ({ audio, bgColor, onPlay, onPause }) => {
 
 const style = StyleSheet.create<Style>({
   image: {
-    width: 50,
-    height: 50,
+    width: 40,
+    height: 40,
     resizeMode: "cover",
-    marginEnd: 27,
+    marginEnd: 10,
   },
   container: {
     paddingVertical: 13,

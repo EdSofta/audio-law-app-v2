@@ -17,7 +17,7 @@ import navigationTheme from './app/navigation/navigationTheme';
 import AudioProvider from './app/audio/AudioProvider';
 import routes from './app/navigation/routes';
 import MiniAudioPlayer from './app/components/MiniAudioPlayer';
-import { PlaylistContext } from './app/audio/context';
+import { PlaylistContext, AudioContext } from './app/audio/context';
 import useAuth from './app/auth/useAuth';
 import SubscriptionPrompt from './app/components/modals/SubscriptionPrompt';
 import { SubscribeContext } from './app/subscribe/context';
@@ -41,6 +41,7 @@ const Main = () => {
   const navigationRef = useNavigationContainerRef();
   const { user } = useAuth();
   const { playlist, currentIndex } = useContext(PlaylistContext);
+  const {isPlaying} = useContext(AudioContext);
   const [audioVisible, setAudioVisible] = useState(false);
   const { showModal, setShowModal } = useContext(SubscribeContext);
   const updateState = () => {
@@ -56,6 +57,12 @@ const Main = () => {
   useEffect(() => {
     updateState();
   }, [playlist]);
+
+  useEffect(() => {
+    if (isPlaying) {
+      navigationRef.navigate(routes.AUDIO);
+    }
+  }, [isPlaying])
 
   return (
     <>

@@ -4,5 +4,6 @@ export type Category = {
   secondaryColor: string;
   tertiaryColor: string;
   imgUri: number;
+  backgroundUri : number;
   slug: string;
 };

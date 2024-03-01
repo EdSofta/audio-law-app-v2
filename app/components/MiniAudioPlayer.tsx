@@ -39,10 +39,10 @@ const MiniAudioPlayer: React.FC<Prop> = ({ onClick }) => {
         <View
           style={{
             paddingVertical: 19,
-            paddingHorizontal: 28,
+            paddingHorizontal: 20,
             backgroundColor: '#fff',
-            marginRight: 10,
-            borderRadius: 10,
+            marginRight: 5,
+            borderRadius: 0,
           }}
         >
           <Image
@@ -50,7 +50,7 @@ const MiniAudioPlayer: React.FC<Prop> = ({ onClick }) => {
             style={{ width: 30, height: 30 }}
           />
         </View>
-        <Text style={[textStyles.heading4, { color: '#555555', flexGrow: 1 }]}>
+        <Text style={[textStyles.heading5, { color: '#555555', width: '60%' }]}>
           {playlist[currentIndex].title}
         </Text>
 
@@ -93,7 +93,7 @@ const MiniAudioPlayer: React.FC<Prop> = ({ onClick }) => {
 
 const style = StyleSheet.create({
   actionBtn: {
-    marginRight: 10,
+    marginRight: 5,
   },
   container: {
     width: '100%',

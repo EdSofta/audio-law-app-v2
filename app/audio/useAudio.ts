@@ -2,6 +2,8 @@ import { useContext } from 'react';
 import { AudioContext, PlaylistContext } from './context';
 import { AudioInfo } from '../models/audio.model';
 import { saveSession } from './session';
+import { useNavigationContainerRef } from '@react-navigation/native';
+import routes from '../navigation/routes';
 
 const useAudio = () => {
   const { currentIndex, playlist, updatePlaylist } =
@@ -15,10 +17,13 @@ const useAudio = () => {
     playbackStatusUpdate,
   } = useContext(AudioContext);
 
+  const navigationRef = useNavigationContainerRef();
+
   const loadPlaylist = async (list: Array<AudioInfo>, indexToPlay: number) => {
     const selected = list[indexToPlay];
+    console.log(selected);
     try {
-      await reset();
+      // await reset();
 
       updatePlaylist({
         playlist: list,
@@ -76,6 +81,7 @@ const useAudio = () => {
   };
 
   const play = async (uri: string, playbackPosition: number = 0) => {
+    console.log(uri);
     await playbackObj?.loadAsync(
       { uri },
       {
@@ -121,6 +127,7 @@ const useAudio = () => {
   };
 
   const reset = async () => {
+   try {
     if (isPlaying && playbackObj?._loaded) {
       await playbackObj?.stopAsync();
     }
@@ -128,6 +135,9 @@ const useAudio = () => {
       await playbackObj?.stopAsync();
       await playbackObj?.unloadAsync();
     }
+   } catch (e) {
+    console.error(e);
+   }
   };
 
   return {
